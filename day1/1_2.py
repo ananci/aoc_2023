@@ -1,10 +1,11 @@
 import re
 
-def get_sum2(lines: list[str]) -> int:
-    val_list = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
-    return sum([int(y[0] + y[-1]) for line in lines for y in [[x if x not in val_list else str(val_list.index(x) + 1) for x in re.findall(f"(?=({'|'.join(val_list)}|\d))", line)]]])
+# Code Golfed solution in single list comprehension.
+def get_sum2(ls: list[str]) -> int:
+    return sum([int(y[0] + y[-1]) for v in [['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']] for l in ls for y in [[x if x not in v else str(v.index(x) + 1) for x in re.findall(f"(?=({'|'.join(v)}|\d))", l)]]])
 
 
+# More readable solution.
 def get_sum(lines: list[str]) -> int:
     total = 0
     val_list = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
