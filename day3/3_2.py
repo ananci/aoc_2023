@@ -151,7 +151,6 @@ if __name__ == '__main__':
     print(grid.gear_map)
     print('aaa')
     for k, v in grid.gear_map.items():
-        print(f'{k}: {v}')
         if len(v) >= 2:
             total += math.prod([x.value_int for x in v])
     print(total)
